@@ -11,7 +11,7 @@ const darkMode = ref(isDark)
 const toggleTheme = () => {
   darkMode.value = !darkMode.value
   document.documentElement.setAttribute('data-theme', darkMode.value ? 'dark' : 'light')
-  localStorage.setItem('darkMode', darkMode.value)
+  localStorage.setItem('darkMode', darkMode.value.toString())
 }
 </script>
 
