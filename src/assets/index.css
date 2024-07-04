@@ -3,6 +3,7 @@
   --font-color: #424242;
   --primary-color: #2f9b0d;
   --secondary-color: #f5f5f5;
+  --input-color: #2f2;
 }
 
 [data-theme='dark'] {
@@ -10,6 +11,7 @@
   --font-color: #f5f5f5;
   --primary-color: #2f9b0d;
   --secondary-color: #333;
+  --input-color: #2f2;
 }
 
 body {
