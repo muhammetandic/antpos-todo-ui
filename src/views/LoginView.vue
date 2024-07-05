@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+import FormInput from '../components/base/FormInput.vue'
+import FormButton from '../components/base/FormButton.vue'
+
 const formData = reactive({ email: '', password: '', authType: 'cookie' })
+
 const handleSubmit = () => {
   console.log(formData)
   fetch('http://localhost:5200/auth/signin', {
@@ -17,52 +21,9 @@ const handleSubmit = () => {
 
 <template>
   <form @submit.prevent="handleSubmit">
-    <div>
-      <label>Kullanıcı Adı</label>
-      <input type="text" v-model="formData.email" />
-    </div>
-    <div>
-      <label>Parola</label>
-      <input type="password" v-model="formData.password" />
-    </div>
+    <FormInput v-model="formData.email" label="E-Posta" type="text" />
+    <FormInput v-model="formData.password" label="Parola" type="password" />
 
-    <button type="submit" @click="handleSubmit">Giriş</button>
+    <FormButton @click="handleSubmit" label="Giriş" />
   </form>
 </template>
-
-<style scoped>
-label {
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-input,
-button {
-  border-radius: 0.25rem;
-  font-size: 1.25rem;
-  padding: 0.25rem;
-  border: none;
-}
-
-input {
-  min-width: 25rem;
-  border: 2px solid var(--primary-color);
-}
-
-input:focus {
-  outline: none;
-  border: 2px solid var(--input-color);
-}
-
-button {
-  background: var(--primary-color);
-  min-width: 5rem;
-  cursor: pointer;
-  margin-top: 1rem;
-}
-
-button:hover {
-  background: var(--input-color);
-}
-</style>
