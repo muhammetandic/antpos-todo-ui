@@ -1,5 +1,5 @@
 <script setup>
-import { toRef, defineEmits, watch } from 'vue'
+import { toRef, watch } from 'vue'
 
 const props = defineProps({
   label: String,
